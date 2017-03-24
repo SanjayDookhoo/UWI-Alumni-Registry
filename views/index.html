@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Session Management in NodeJS using Express4.2</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+
+<!-- <input type="text" size="40" placeholder="Type your email" id="email"><br />
+<input type="password" size="40" placeholder="Type your password" id="password"><br />
+<input type="button" value="Submit" id="submit"> -->
+
+<div id="wrapper" >
+  <h1>Set Logo</h1>
+  <h2>set headline</h2>
+  <form onsubmit="return false;">
+    <input type="radio" id="login" name="action" value="login" checked>
+    <input type="radio" id="register" name="action" value="register">
+    <input type="radio" id="reset" name="action" value="reset">
+    <div id="inputs">
+      <div>
+        <input type="text" id="email"  placeholder="email" autofocus>
+        <div>
+          <input type="password" id="password" placeholder="password">
+          <div>
+            <input type="password" placeholder="repeat password">
+            <input type="submit" value="reset password">
+            <div>
+              <input type="submit" value="register">
+              <input type="submit" onclick="a()"  id="login" value="login">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="labels">
+      <label for="login">Already registered? <span>Login</span></label>
+      <label for="reset">Password lost? <span>Reset</span></label>
+      <label for="login"><span>Back</span></label>
+      <label for="register">Not registered? <span>Create an account</span></label>
+    </div>
+  </form>
+</div>
+<script>
+function a(){
+	var email,pass;
+	console.log("test");
+	email=$("#email").val();
+	pass=$("#password").val();
+	/*
+	* Perform some validation here.
+	*/
+	$.post("http://localhost:8080/login",{email:email,pass:pass},function(data){
+		if(data==='admin')
+		{
+			window.location.href="/admin";
+		}else if(data==='grad')
+		{
+			window.location.href="/grad";
+		}
+	});
+}
+</script>
+</body>
+</html>

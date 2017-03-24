@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Node Site</title>
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/layoutgrad.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//vega.github.io/vega/vega.js"></script>
+  <script src="//vega.github.io/vega-lite/vega-lite.js"></script>
+  <script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+
+  <style media="screen">
+    /* Add space between vega-embed links  */
+    .vega-actions a {
+      margin-right: 5px;
+    }
+    </style>
+
+  <script src="/js/main.js"></script>
+</head>
+<body>
+  <header role="banner">
+    <h1>Graduate Panel</h1>
+    <ul class="utilities">
+      <li class="users"><a href="/editStudent">My Account</a></li>
+      <li class="logout warn"><a href="/logout">Log Out</a></li>
+    </ul>
+  </header>
+
+  <nav role="navigation">
+    <ul class="main">
+      <li class="dashboard"><a href="#">Dashboard</a></li>
+      <li class="write"><a href="#">Write Post</a></li>
+      <li class="edit"><a href="#">Edit Posts</a></li>
+    </ul>
+  </nav>
+
+    <!-- MAIN CONTENT HERE -->
+    <%- defineContent('hero') %>
+    <main role="main">
+      <div class="container">
+        <%- body %>
+      </div>
+    </main>
+
+
+
+
+</body>
+</html>

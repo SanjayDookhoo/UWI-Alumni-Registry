@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Session Management in NodeJS using Express4.2</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var email,pass;
+	$("#submit").click(function(){
+		email=$("#email").val();
+		pass=$("#password").val();
+		/*
+		* Perform some validation here.
+		*/
+		$.post("http://localhost:8080/login",{email:email,pass:pass},function(data){
+			if(data==='admin')
+			{
+				window.location.href="/admin";
+			}else if(data==='grad')
+			{
+				window.location.href="/grad";
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+
+<!-- <input type="text" size="40" placeholder="Type your email" id="email"><br />
+<input type="password" size="40" placeholder="Type your password" id="password"><br />
+<input type="button" value="Submit" id="submit"> -->
+
+<section class="login-info">
+<div class="container">
+  <div class="row main">
+       <div class="form-header">
+          <h1 class="text-center ">Does not exist. Please try another link. </h1>
+        </div>
+    </div>
+</div>
+</section>
+</body>
+</html>
