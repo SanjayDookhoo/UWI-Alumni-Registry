@@ -36,7 +36,7 @@ app.get('/',function(req,res){
 app.post('/login',function(req,res){
 	sess=req.session;
 	sess.email=req.body.email;
-    if(sess.email=="a@a.com"){
+    if(sess.email=="a@a.com" ||sess.email=="A@A.COM" ){
         sess.who="admin";
         res.end('admin');
     }else{
