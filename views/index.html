@@ -5,19 +5,13 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-
-
 </head>
 <body>
-
-<!-- <input type="text" size="40" placeholder="Type your email" id="email"><br />
-<input type="password" size="40" placeholder="Type your password" id="password"><br />
-<input type="button" value="Submit" id="submit"> -->
 
 <div id="wrapper" >
   <h1>Set Logo</h1>
   <h2>set headline</h2>
-  <form onsubmit="return false;">
+  <form >
     <input type="radio" id="login" name="action" value="login" checked>
     <input type="radio" id="register" name="action" value="register">
     <input type="radio" id="reset" name="action" value="reset">
@@ -29,9 +23,9 @@
           <div>
             <input type="password" placeholder="repeat password">
             <input type="submit" value="reset password">
-            <div>
+            <div id="submit">
               <input type="submit" value="register">
-              <input type="submit" onclick="login()"  id="login" value="login">
+              <input type="submit" value="login">
             </div>
           </div>
         </div>
