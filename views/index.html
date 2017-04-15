@@ -1,44 +1,69 @@
 <html>
+
 <head>
-<title>Session Management in NodeJS using Express4.2</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/css/login.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Session Management in NodeJS using Express4.2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
+
 <body>
 
-<div id="wrapper" >
-  <h1>Set Logo</h1>
-  <h2>set headline</h2>
-  <form >
-    <input type="radio" id="login" name="action" value="login" checked>
-    <input type="radio" id="register" name="action" value="register">
-    <input type="radio" id="reset" name="action" value="reset">
-    <div id="inputs">
-      <div>
-        <input type="text" id="email"  placeholder="email" autofocus>
-        <div>
-          <input type="password" id="password" placeholder="password">
-          <div>
-            <input type="password" placeholder="repeat password">
-            <input type="submit" value="reset password">
-            <div id="submit">
-              <input type="submit" value="register">
-              <input type="submit" value="login">
+    <div id="wrapper">
+        <h1>Set Logo</h1>
+        <h2>set headline</h2>
+        <form onsubmit="false;">
+            <input type="radio" id="login" name="action" value="login" checked>
+            <input type="radio" id="register" name="action" value="register">
+            <input type="radio" id="reset" name="action" value="reset">
+            <div id="inputs">
+                <div>
+                    <input type="text" id="email" placeholder="email" autofocus>
+                    <div>
+                        <input type="password" id="password" placeholder="password">
+                        <div>
+                            <input type="password" placeholder="repeat password">
+                            <input type="submit" value="reset password">
+                            <div id="submit">
+                                <input type="submit" value="register">
+                                <input type="submit" value="login">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
+            <div id="labels">
+                <label for="login">Already registered? <span>Login</span></label>
+                <label for="reset">Password lost? <span>Reset</span></label>
+                <label for="login"><span>Back</span></label>
+                <label for="register">Not registered? <span>Create an account</span></label>
+            </div>
+        </form>
     </div>
-    <div id="labels">
-      <label for="login">Already registered? <span>Login</span></label>
-      <label for="reset">Password lost? <span>Reset</span></label>
-      <label for="login"><span>Back</span></label>
-      <label for="register">Not registered? <span>Create an account</span></label>
-    </div>
-  </form>
-</div>
-<script src="/js/login.js"></script>
+
+
+    <script src="/jquery.sha256/jquery.sha256.min.js"></script>
+    <script src="/js/login.js"></script>
+    <script>
+        function a() {
+            var data = {
+                email: "a@a.com"
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/login",
+                data: data,
+                success: success,
+                dataType: dataType
+            });
+        }
+
+        set
+        var x = $.sha256("a");
+        console.log(x);
+    </script>
 </body>
+
 </html>

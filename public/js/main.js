@@ -65,37 +65,7 @@ function barGraph(){
       //console.log(response);
 
       var data2=JSON.parse(response);
-/*
-      var vlSpec = {
-      "data": {
-        "values": data2},
-      "transform": {
-        //"calculate": [{"field": "gender", "expr": "datum.gender == \"Female\" ? \"Female\" : \"Male\""}]
-      },
-      "mark": "bar",
-      "encoding": {
-        "column": {
-          "field": "age", "type": "ordinal",
-          "scale": {"padding": 4},
-          "axis": {"orient": "bottom", "axisWidth": 1, "offset": -8}
-        },
-        "y": {
-          "aggregate": "sum", "field": "count", "type": "quantitative",
-          "axis": {"title": "has the job", "grid": false}
-        },
-        "x": {
-          //"field": "gender", "type": "nominal",
-          "scale": {"bandSize": 6},
-          "axis": false
-        },
-        "color": {
-          //"field": "gender", "type": "nominal",
-          "scale": {"range": ["#EA98D2", "#659CCA"]}
-        }
-      },
-      "config": {"facet": {"cell": {"strokeWidth": 0}}}
-    };
-*/
+
       var vlSpec = {
       "data": {
         "values": data2},

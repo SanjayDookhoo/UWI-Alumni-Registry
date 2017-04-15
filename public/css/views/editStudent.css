@@ -1,0 +1,243 @@
+/*style for map*/
+
+.modal-dialog {
+    width: 100%
+}
+
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+#map {
+    height: 75%;
+    width: 100%;
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+.pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+.pac-container {
+    z-index: 100000;
+}
+
+
+/*style for form*/
+
+#contact {
+    padding: 10px 0 10px;
+}
+
+.contact-text {
+    margin: 45px auto;
+}
+
+.mail-message-area {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.mail-message {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8) !important;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    transition: all 0.7s;
+    margin: 0 auto;
+    border-radius: 0;
+}
+
+.not-visible-message {
+    height: 0px;
+    opacity: 0;
+}
+
+.visible-message {
+    height: auto;
+    opacity: 1;
+    margin: 25px auto 0;
+}
+
+
+/* Input Styles */
+
+.form {
+    width: 100%;
+    padding: 15px;
+    background: #f8f8f8;
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    margin-bottom: 25px;
+    color: #727272 !important;
+    font-size: 13px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.form:hover {
+    border: 1px solid #8BC3A3;
+}
+
+.form:focus {
+    color: white;
+    outline: none;
+    border: 1px solid #8BC3A3;
+}
+
+.textarea {
+    height: 200px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+
+/* Generic Button Styles */
+
+.button {
+    padding: 8px 12px;
+    background: #0A5175;
+    display: block;
+    width: 120px;
+    margin: 10px 0 0px 0;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    font-size: 0.8em;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+    -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.button:hover {
+    background: #8BC3A3;
+    color: white;
+}
+
+
+/* Send Button Styles */
+
+.form-btn {
+    width: 180px;
+    display: block;
+    height: auto;
+    padding: 15px;
+    color: #fff;
+    background: #8BC3A3;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin: auto;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+    -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.form-btn:hover {
+    background: #111;
+    color: white;
+    border: none;
+}
+
+.form-btn:active {
+    opacity: 0.9;
+}
+
+.add {
+    background: #FFCCCC;
+}
+
+.submit {
+    margin-top: 50px;
+}
+
+.add-from-maps {
+    background: #CCCCCC;
+    margin-bottom: 20px;
+}
+
+center {
+    margin-top: 330px;
+}
+
+input {
+    position: relative;
+    z-index: 1;
+}

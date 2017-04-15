@@ -1,14 +1,22 @@
-# Build a Website with Node.js
+# UWI-Alumni Registry Web Application
 
-Full project for the Build a Website with Node course. 
+## Pre-Req:
+
+1. Ensure Nodejs is installed
+2. Ensure mongoDB is installed
 
 ## Instructions
 
-1. Clone the repo: `git@github.com:scotch-io/node-website-course.git`
-2. Install packages: `npm install`
+1. Install packages: `npm install`
+2. Initiate mongoDB server by command `mongod`
 3. Start the server: `node server.js`
 4. Visit in browser at: `http://localhost:8080`
+5. Graduate student website can be accessed by any email or password
+6. Admin website can be accessed by email `a@a.com`
 
-## Course Videos
+## Generating Mockup data
 
-[Watch the first three lessons free](https://school.scotch.io/build-a-nodejs-website)
+1. Initiate mongoDB server by command `mongod`
+2. Enter directory /app/
+3. Run command `curl "http://mockaroo.com/0572bcd0/download?count=1000&key=239fdb20" > "graduateStudent.json"`
+4. Store data using Nodejs: `node graduateStudentStore.js`

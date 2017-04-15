@@ -1,32 +1,182 @@
-<body>
-  <div id="prefContainer">
-		<form action="#" method="post">
-			<p>
-				<label for="username">Username</label>
-				<input id="username" name="username" type="text">
-				<span class="right">Enter username longer than 5 characters</span>
-			</p>
-			<p>
-				<label for="password">Password</label>
-				<span class="left">Enter a password with at least one capital letter (A-Z), one lowercase letter (a-z) and one number (0-9).</span>
-				<input id="password" name="password" type="password">
-				<span class="right">Enter a password longer than 8 characters</span>
-			</p>
-			<p>
-				<label for="confirm_password">Confirm Password</label>
-				<input id="confirm_password" name="confirm_password" type="password">
-				<span class="right">Please confirm your password</span>
-			</p>
-			<p>
-				<input type="submit" value="Save" id="submit">
-			</p>
-		</form>
-  </div>
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+<body ng-app="myApp">
+
+    </table>
+
+    <!-- map and modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    Google Maps
+                </div>
+                <div class="modal-body">
+                    <div id="map-canvas-modal"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="pac-card" id="pac-card" style="display:none">
+        <div>
+            <div id="title">
+                Autocomplete search
+            </div>
+            <div id="type-selector" class="pac-controls">
+                <input type="radio" name="type" id="changetype-all" checked="checked">
+                <label for="changetype-all">All</label>
+
+                <input type="radio" name="type" id="changetype-establishment">
+                <label for="changetype-establishment">Establishments</label>
+
+                <input type="radio" name="type" id="changetype-address">
+                <label for="changetype-address">Addresses</label>
+
+                <input type="radio" name="type" id="changetype-geocode">
+                <label for="changetype-geocode">Geocodes</label>
+            </div>
+            <div id="strict-bounds-selector" class="pac-controls">
+                <input type="checkbox" id="use-strict-bounds" value="">
+                <label for="use-strict-bounds">Strict Bounds</label>
+            </div>
+        </div>
+        <div id="pac-container">
+            <input id="pac-input" type="text" placeholder="Enter a location">
+        </div>
+        <div id="infoPanel">
+            <b>Marker status:</b>
+            <div id="markerStatus"><i>Click and drag the marker.</i></div>
+            <b>Current position:</b>
+            <div id="info"></div>
+            <b>Closest matching address:</b>
+            <div id="address"></div>
+        </div>
+    </div>
+    <div id="map" style="position: absolute;left: -100%;"></div>
+    <div id="infowindow-content" style="display:none">
+        <img src="" width="16" height="16" id="place-icon">
+        <span id="place-name" class="title"></span><br>
+        <span id="place-address"></span>
+    </div>
+
+    <div id="education-template-container">
+        <div class="education-template">
+            Education 1 <br>
+            <input type="text" name="myInputs[]" required="required" class="form" placeholder="Education Title">
+            <input type="text" name="myInputs[]" required="required" class="form" placeholder="Institution Name">
+
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#datetimepicker1').datetimepicker();
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!--seperate -->
+    <div id="occupation-template-container">
+        <div class="occupation-template">
+            Occupation 1 <br><input type="text" name="myInputs[]" required="required" class="form" placeholder="Occupation Title">
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#datetimepicker1').datetimepicker();
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div ng-controller="myCtrl">
+        <form method="post" ng-repeat="x in records" action="#">
+
+            <!-- Left Inputs -->
+            <div class="col-xs-4 wow animated slideInLeft" data-wow-delay=".5s">
+                <h1 class="jumbotron">Personal Information</h1>
+                <!-- First Name -->
+                <input type="text" name="firstName" ng-model="x.firstName" id="name" required="required" class="form" placeholder="First Name" />
+                <!-- Last Name -->
+                <input type="text" name="last-name" ng-model="x.lastName" id="name" required="required" class="form" placeholder="Last Name" />
+                <!-- Age -->
+                <input type="text" name="age" ng-model="x.age" id="name" required="required" class="form form-control bfh-number" placeholder="Age" data-min="18" data-max="100" />
+                <!-- Gender -->
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default" ng-repeat="gend in gender">
+                <input type="radio" name="options" id="option1" autocomplete="off" value="{{gend.type}}" ng-model="x.gender" required/> {{gend.type}}
+            </label>
+                </div>
+            </div>
+            <!-- End Left Inputs -->
+
+            <!-- Middle Inputs -->
+            <div class="col-xs-4 wow animated slideInRight" data-wow-delay=".5s">
+                <h1 class="jumbotron">Education History</h1>
+
+
+                <div id="education">
+
+                </div>
+
+                <input type="button" value="Set Map Location" class="form-btn add-from-maps semibold" onClick="setLocation();">
+
+                <input type="button" value="Add Another Education" class="form-btn add semibold" onClick="addInputEducation();">
+            </div>
+            <!-- End Right Inputs -->
+
+            <!-- Right Inputs -->
+            <div class="col-xs-4 wow animated slideInRight" data-wow-delay=".5s">
+                <h1 class="jumbotron">Occupation History</h1>
+
+                <div id="occupation">
+
+                </div>
+
+                <input type="button" value="Set Map Location" class="form-btn add-from-maps semibold" onClick="setLocation();">
+
+                <input type="button" value="Add Another occupation" class="form-btn add semibold" onClick="addInputOccupation();">
+            </div>
+            <!-- End Right Inputs -->
+
+            <!-- Bottom Submit -->
+            <div class="relative fullwidth col-xs-12">
+                <!-- Send Button -->
+                <button type="submit" id="submit" name="submit" class="form-btn submit semibold">Save Profile</button>
+            </div>
+            <!-- End Bottom Submit -->
+            <!-- Clear -->
+            <div class="clear"></div>
+
+        </form>
+    </div>
 
     <link rel="stylesheet" type="text/css" href="/css/views/editStudent.css">
 
     <script src="/js/views/editStudent.js"></script>
-
-	</body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjV8ktyrsNw2UpH0KwEnFuZjynqh42bM4&libraries=places&callback=initMap" async defer></script>
+</body>

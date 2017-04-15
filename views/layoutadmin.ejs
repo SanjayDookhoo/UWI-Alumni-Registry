@@ -1,55 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>My Node Site</title>
+    <meta charset="UTF-8">
+    <title>My Node Site</title>
 
 
 
-  <script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/layoutgrad.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.min.css" />
 
-  <script src="//d3js.org/d3.v3.min.js"></script>
-  <script src="//vega.github.io/vega/vega.js"></script>
-  <script src="//vega.github.io/vega-lite/vega-lite.js"></script>
-  <script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
 
-  <script src="/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link rel="stylesheet" href="/css/layoutgrad.css">
+
+
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//vega.github.io/vega/vega.js"></script>
+    <script src="//vega.github.io/vega-lite/vega-lite.js"></script>
+    <script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+    <script src="/js/main.js"></script>
 </head>
-<body>
-  <header role="banner">
-    <h1>Admin Panel</h1>
-    <ul class="utilities">
-      <li class="users"><a href="/editStudent">My Account</a></li>
-      <li class="logout warn"><a href="/logout">Log Out</a></li>
-    </ul>
-  </header>
 
-  <nav role="navigation">
-    <ul class="main">
-      <li class="temp"><a href="#">Graphs</a></li>
-      <li class="temp"><a href="#">Events</a></li>
-      <li class="temp"><a href="#">Direct Message</a></li>
-    </ul>
-  </nav>
+<body>
+    <header role="banner">
+        <h1>Admin Panel</h1>
+        <ul class="utilities">
+            <li class="users"><a href="#">My Account</a></li>
+            <li class="logout warn"><a href="/logout">Log Out</a></li>
+        </ul>
+    </header>
+
+    <nav role="navigation">
+        <ul class="main">
+            <li class="temp"><a href="#">Graphs</a></li>
+            <li class="temp"><a href="#">Events</a></li>
+            <li class="temp"><a href="#">Direct Message</a></li>
+        </ul>
+    </nav>
 
     <!-- MAIN CONTENT HERE -->
     <%- defineContent('hero') %>
-    <main role="main">
-      <div class="container">
-        <%- body %>
-      </div>
-    </main>
+        <main role="main">
+            <div class="container">
+                <%- body %>
+            </div>
+        </main>
 
 
 
 
 </body>
+
 </html>

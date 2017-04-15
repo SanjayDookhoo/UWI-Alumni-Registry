@@ -1,16 +1,69 @@
-<div class="jumbotron text-center">
-  <h1>Graphs</h1>
+<link rel="stylesheet" type="text/css" href="/css/graphs.css">
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <ul>
-        <li><a href="/barGraph">Bar Graph</a></li>
-        <li><a href="/lineGraph">Line Graph</a></li>
-        <li><a href="/histogram">Histogram</a></li>
-        <li><a href="/heatmap">Heatmap</a></li>
-      </ul>
+<div class="accordionBody">
+	<nav class="accordion arrows">
+		<header class="box">
+			<label for="acc-close" class="box-title">Analytics Chooser</label>
+		</header>
+		<input class="controllerIn" type="radio" name="accordion" id="cb1" />
+		<section class="box">
+			<label class="box-title" for="cb1">Distribution - General</label>
+			<label class="box-close" for="acc-close"></label>
+			<div class="box-content">
+				<input type="text" name="firstName" id="general-view" required="required" class="form" placeholder="View age/gender" />
+				<input type="text" name="firstName" id="general-filter" required="required" class="form" placeholder="Filter by age/gender" />
+				<input type="text" name="firstName" id="general-filter-value" required="required" class="form" placeholder="Filter Value" />
+				<input type="text" name="firstName" id="general-filter-time-start" required="required" class="form" placeholder="Start Date" />
+				<input type="text" name="firstName" id="general-filter-time-end" required="required" class="form" placeholder="End Date" />
 
-      <div id="vis"></div>
-    </div>
-  </div>
+				<input type="button" value="Create Chart" class="form-btn add-from-maps semibold" onClick="createChartGeneral();">
+			</div>
+		</section>
+		<input class="controllerIn" type="radio" name="accordion" id="cb2" />
+		<section class="box">
+			<label class="box-title" for="cb2">Distribution - Education</label>
+			<label class="box-close" for="acc-close"></label>
+			<div class="box-content">
+				<input type="text" name="firstName" id="education-filter" required="required" class="form" placeholder="Filter by age" />
+				<input type="text" name="firstName" id="education-filter" required="required" class="form" placeholder="Filter by Gender" />
+				<input type="text" name="firstName" id="education-filter-time-start" required="required" class="form" placeholder="Start Date" />
+				<input type="text" name="firstName" id="education-filter-time-end" required="required" class="form" placeholder="End Date" />
+
+				<input type="button" value="Create Chart" class="form-btn add-from-maps semibold" onClick="createChartEducation();">
+			</div>
+		</section>
+		<input class="controllerIn" type="radio" name="accordion" id="cb3" />
+		<section class="box">
+			<label class="box-title" for="cb3">Distribution - Occupation</label>
+			<label class="box-close" for="acc-close"></label>
+			<div class="box-content">
+				<input type="text" name="firstName" id="occupation-view" required="required" class="form" placeholder="First Name" />
+				<input type="text" name="firstName" id="occupation-filter" required="required" class="form" placeholder="First Name" />
+				<input type="text" name="firstName" id="occupation-filter-time-start" required="required" class="form" placeholder="Start Date" />
+				<input type="text" name="firstName" id="occupation-filter-time-end" required="required" class="form" placeholder="End Date" />
+
+				<input type="button" value="Create Chart" class="form-btn add-from-maps semibold" onClick="createChartOccupation();">
+			</div>
+		</section>
+		<input class="controllerIn" type="radio" name="accordion" id="cb4" />
+		<section class="box">
+			<label class="box-title" for="cb4">Heat Maps</label>
+			<label class="box-close" for="acc-close"></label>
+			<div class="box-content">
+				<input type="text" name="firstName" id="general-view" required="required" class="form" placeholder="First Name" />
+				<input type="text" name="firstName" id="general-filter" required="required" class="form" placeholder="First Name" />
+				<input type="text" name="firstName" id="general-filter-time-start" required="required" class="form" placeholder="Start Date" />
+				<input type="text" name="firstName" id="general-filter-time-end" required="required" class="form" placeholder="End Date" />
+
+				<input type="button" value="Create Chart" class="form-btn add-from-maps semibold" onClick="createHeatMap();">
+			</div>
+		</section>
+
+		<input class="controllerIn" type="radio" name="accordion" id="acc-close" />
+	</nav>
 </div>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/graphs.js"></script>

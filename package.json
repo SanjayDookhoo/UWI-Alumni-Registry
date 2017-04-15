@@ -10,9 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "bootstrap-datetimepicker": "0.0.7",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "express-ejs-layouts": "^2.2.0",
+    "express-session": "^1.15.2",
+    "mongoose": "^4.9.4",
     "nodemon": "^1.10.2"
   }
 }

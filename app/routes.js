@@ -1,9 +1,13 @@
 // require express
+var conn= require('../app/connection.js');
 var express = require('express');
 var path    = require('path');
 var util = require('util');
 var Student = require("../app/StudentSchema");
-
+/*
+var mongoURI = "mongodb://localhost:27017/UWIAlumni";
+var MongoDB = mongoose.connect(mongoURI).connection;
+*/
 // create our router object
 var router = express.Router();
 
@@ -36,6 +40,7 @@ app.get('/',function(req,res){
 app.post('/login',function(req,res){
 	sess=req.session;
 	sess.email=req.body.email;
+
     if(sess.email=="a@a.com" ||sess.email=="A@A.COM" ){
         sess.who="admin";
         res.end('admin');
@@ -43,15 +48,14 @@ app.post('/login',function(req,res){
         sess.who="grad";
         res.end('grad');
     }
-
-
 });
 
-app.get('/admin',function(req,res){ //admin home page
+
+app.get('/grad',function(req,res){ // grad home page
 	sess=req.session;
-	if(sess.who=="admin")
+	if(sess.who=="grad")
 	{
-    res.render('pages/adminHome', {layout: 'layout'+sess.who+'.ejs'});
+    res.render('pages/gradHome', {layout: 'layout'+sess.who+'.ejs'});
 	}
 	else
 	{
@@ -60,11 +64,11 @@ app.get('/admin',function(req,res){ //admin home page
 
 });
 
-app.get('/grad',function(req,res){ // grad home page
+app.get('/admin',function(req,res){ // grad home page
 	sess=req.session;
-	if(sess.who=="grad")
+	if(sess.who=="admin")
 	{
-    res.render('pages/gradHome', {layout: 'layout'+sess.who+'.ejs'});
+    res.render('pages/graphs', {layout: 'layout'+sess.who+'.ejs'});
 	}
 	else
 	{
@@ -140,73 +144,56 @@ router.post('/editStudent', function(req, res) {
 });
 
 router.get('/test', function(req, res) {
-  util.log(util.inspect(req))
+  //util.log(util.inspect(req))
   var temp;
-  Student.find({count:1}).then(function(result){
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(JSON.stringify(result));
-    done();
-  });
+	Student.find({}, function (err, user) {
+        temp=user;
+				console.log(user);
+    });
+		console.log("what");
 });
-
+/*
 router.get('/query', function(req, res) {
   //util.log(util.inspect(req))
   var temp;
-  /*
-  Student.find({count:1}).then(function(result){
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(JSON.stringify(result));
-    done();
-  });
-*/
+
   var queryRequested=req.query;
 
   var query={};
-  console.log(queryRequested);
-  try {
-    //lte
-    for (var key in queryRequested.where.lte) {
-      query[key]={"$lte":queryRequested.where.lte[key]}; //some reason does not work with . so brackets was used
-    }
 
-    //gte
-    for (var key in queryRequested.where.gte) {
-      query[key]["$gte"]=queryRequested.where.gte[key]; //some reason does not work with . so brackets was used
-    }
-
-    //is
-    for (var key in queryRequested.where.is) {
-      if(key=="jobTitle"){
-        query["occupations."+key]=queryRequested.where.is[key]; //some reason does not work with . so brackets was used
-      }else if(key=="companyName"){
-        query["occupations."+key]=queryRequested.where.is[key]; //some reason does not work with . so brackets was used
-      }else{
-        query[key]=queryRequested.where.is[key]; //some reason does not work with . so brackets was used
-      }
-
-    }
-  }
-  catch(err) {
-      console.log( err.message);
-  }
-
-  console.log(query);
-
-  Student.find(query).sort({viewCount: -1}).exec(
+  Student.find({count:1}).sort({viewCount: -1}).exec(
         function(err, result) {
-          console.log(result);
           res.writeHead(200, { 'Content-Type': 'text/plain' });
-          res.end(JSON.stringify(result));
+          //res.end(JSON.stringify(result));
+					res.end(JSON.stringify(result));
+
         }
     );
 
-/*
-  Student.find({projectName: '***'}, ["_id"]).sort({viewCount: -1}).limit(5).exec(
-        function(err, projects) {
-            ...
-        }
-    );*/
+		// Student.aggregate([
+		//     { $match: {  } } // Query can go here, if you want to filter results.
+		//   , { $project: { tokens: 1 } } // select the tokens field as something we want to "send" to the next command in the chain
+		//   , { $unwind: '$tokens' } // this converts arrays into unique documents for counting
+		//   , { $group: { // execute 'grouping'
+		//           _id: { token: '$tokens' } // using the 'token' value as the _id
+		//         , count: { $sum: 1 } // create a sum value
+		//       }
+		//     }
+		// ], function(err, topTopics) {
+		//   console.log(topTopics);
+		//   // [ foo: 4, bar: 2 baz: 2 ]
+		// });
+
+
+
+
+  // Student.find({projectName: '***'}, ["_id"]).sort({viewCount: -1}).limit(5).exec(
+  //       function(err, projects) {
+  //           ...
+  //       }
+  //   );
 });
+*/
 
 router.get('/graphs', function(req, res) {
   res.render('pages/graphs', {layout: 'layout'+sess.who+'.ejs'});
